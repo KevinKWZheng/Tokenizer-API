@@ -1,0 +1,37 @@
+{
+  "name": "llm-tokenizer",
+  "version": "1.0.0",
+  "description": "A lightweight tokenizer for OpenAI's GPT model series. Uses OpenAI's tiktoken python package",
+  "main": "src/main.ts",
+  "types": "src/main.d.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "pip install tiktoken"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinKWZheng/OpenAI-Tokenizer.git"
+  },
+  "keywords": [
+    "OpenAI",
+    "GPT-3",
+    "GPT-4",
+    "GPT-3.5",
+    "ChatGPT",
+    "LLMs",
+    "GPT",
+    "tokenizer"
+  ],
+  "author": "thrawnk",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/KevinKWZheng/OpenAI-Tokenizer/issues"
+  },
+  "homepage": "https://github.com/KevinKWZheng/OpenAI-Tokenizer#readme",
+  "devDependencies": {
+    "eslint": "^8.48.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
