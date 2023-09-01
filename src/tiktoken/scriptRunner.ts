@@ -1,7 +1,7 @@
 import { spawn } from "child_process";
 import path from "path";
 
-export function runScripts(functionName: string, param: string[]) {
+export function runScripts(functionName: string, param: any[]) {
     return new Promise((resolve, reject) => {
         const __filename = new URL(import.meta.url).pathname;
         const __dirname = path.dirname(__filename);

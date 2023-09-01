@@ -21,7 +21,11 @@
     "ChatGPT",
     "LLMs",
     "GPT",
-    "tokenizer"
+    "tokenizer",
+    "BPE",
+    "encoder",
+    "decoder",
+    "Machine Learning"
   ],
   "author": "thrawnk",
   "license": "Apache-2.0",
