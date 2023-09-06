@@ -1,6 +1,6 @@
 {
   "name": "llm-tokenizer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight tokenizer for OpenAI's GPT model series. Uses OpenAI's tiktoken python package",
   "main": "src/main.ts",
   "types": "src/main.d.ts",

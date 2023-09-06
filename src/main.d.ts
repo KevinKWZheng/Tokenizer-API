@@ -1,4 +1,4 @@
-declare module "tokenizer-api" {
+declare module "llm-tokenizer" {
     export class Tokenizer {
 
         /**
