@@ -1,6 +1,7 @@
 import { spawn } from "child_process";
 import path from "path";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function runScripts(functionName: string, param: any[]) {
     return new Promise((resolve, reject) => {
         const __filename = new URL(import.meta.url).pathname;
@@ -15,10 +16,10 @@ export function runScripts(functionName: string, param: any[]) {
 
         python.stdout.on(`data`, (data) => {
             resolve(JSON.parse(data));
-        })
+        });
 
         python.stderr.on(`data`, (buffer) => {
             reject(Buffer.from(buffer).toString(`utf-8`));
-        })
-    })
+        });
+    });
 }

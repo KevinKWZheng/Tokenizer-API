@@ -13,7 +13,7 @@ export class Tokenizer {
             if (err || stderr) throw new Error(`Python environment not detected`);
         });
 
-        exec(`pip list`, (error, stdout, stderr) => {
+        exec(`pip list`, (error, stdout) => {
             if (error) throw new Error(`Pip not available`);
 
             const packages = stdout.trim().split(`\n`);
@@ -44,26 +44,26 @@ export class Tokenizer {
         role: `system` | `user` | `assistant`,
         content: string
     }[], encoding?: EncodingOptions) {
-        return await new Promise(async (resolve, reject) => {
-            var counter = 0, total = 0;
+        return await new Promise((resolve, reject) => {
+            let counter = 0, total = 0;
             const __filename = new URL(import.meta.url).pathname;
             const __dirname = path.dirname(__filename);
-            for (let i in conversation) {
-                let child = fork(`${__dirname}/ChatEncoder`);
+            for (const i in conversation) {
+                const child = fork(`${__dirname}/ChatEncoder`);
                 child.send({ text: conversation[i].content, encoding: encoding ? encoding : this.encoding });
                 child.on(`message`, (message) => {
                     total += JSON.parse(JSON.stringify(message));
                     counter++;
                     if (counter == conversation.length)
                         resolve(total);
-                })
+                });
                 child.on(`error`, (err) => {
                     reject(err);
                 });
                 if (child.stderr)
                     child.stderr.on(`data`, (data) => {
                         reject(Buffer.from(data).toString(`utf-8`));
-                    })
+                    });
 
             }
         });
@@ -88,7 +88,7 @@ export class Tokenizer {
 
         if (options.encodingName) {
             if (!this.encodingList.includes(options.encodingName))
-                throw new Error(`Encoding ${options.encodingName} not available`)
+                throw new Error(`Encoding ${options.encodingName} not available`);
             this.encoding = options.encodingName;
         }
     }

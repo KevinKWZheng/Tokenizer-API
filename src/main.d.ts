@@ -1,3 +1,4 @@
+// eslint-disable-next-line quotes
 declare module "llm-tokenizer" {
     export class Tokenizer {
 
@@ -29,4 +30,4 @@ declare module "llm-tokenizer" {
     }
 }
 
-type EncodingOptions = `cl100k_base` | 'p50k_base' | 'r50k_base';
+type EncodingOptions = `cl100k_base` | `p50k_base` | `r50k_base`;
